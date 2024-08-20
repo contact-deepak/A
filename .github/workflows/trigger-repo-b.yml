@@ -1,4 +1,4 @@
-name: Notify Repo B
+name: Notify Repo A2
 
 on:
   push:
@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repo A
+    - name: Checkout Repo A1
       uses: actions/checkout@v3
 
     - name: Install GitHub CLI
       run: sudo apt-get install gh
 
-    - name: Trigger Repo B Workflow
+    - name: Trigger Repo A2 Workflow
       run: |
-        echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+        echo "${{ secrets.REPO_A2_PAT }}" | gh auth login --with-token
         gh api repos/contact-deepak/A2/dispatches \
           -F event_type=trigger \
           -H "Accept: application/vnd.github+json"
