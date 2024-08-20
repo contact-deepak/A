@@ -26,3 +26,12 @@ jobs:
       with:
         name: java-build
         path: .
+
+    - name: Compile and Run Java Program
+      run: |
+          javac add.java
+          java add < input.txt > output.txt  # Redirect output to a file
+
+    - name: Display Output
+      run: cat output.txt  # Display the output for verification
+
