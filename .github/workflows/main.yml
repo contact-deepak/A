@@ -18,8 +18,8 @@ jobs:
 
     - name: Compile and Run Java Program
       run: |
-        javac AddTwoNumbers.java
-        java AddTwoNumbers < input.txt  # Redirect input from the file
+        javac add.java
+        java add < input.txt  # Redirect input from the file
 
     - name: Archive Build Artifacts
       uses: actions/upload-artifact@v3
