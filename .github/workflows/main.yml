@@ -1,0 +1,20 @@
+name: Trigger Repo A Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger-repo-a:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Repo A Workflow
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.repos.createDispatchEvent({
+              owner: 'RepoAOwner',
+              repo: 'RepoA',
+              event_type: 'trigger-from-repo-b'
+            });
